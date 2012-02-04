@@ -1,0 +1,66 @@
+/* 
+    Document   : style
+    Created on : Feb 2, 2012, 5:06:45 PM
+    Author     : jds
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+a {
+    text-decoration:none;
+}
+#contact {
+    marigin-top: 10%;
+    margin-bottom:5%;
+    margin-left:5%;
+    marigin-right:5%;
+    height: 100%;
+    width: 15%;
+    border-right-color: black;
+    border-right-style: inset;
+    border-right-width: thin;
+    float: left;
+}
+#contact #name {
+    font-weight: bold;
+}
+
+#resume{
+     float: right;
+     width:75%;
+}
+
+.section {
+    margin-top:5%;
+    text-align: left;
+    width:100%;
+    marigin-right:auto;
+}
+.section .title {
+    font-weight: bold;
+}
+.subsection .title {
+    font-weight: bold;
+    margin-left: 3%;
+    margin-right: 5%;
+}
+.entry {
+    margin-right: 5%;
+}
+.section .entry {
+    margin-left: 3%;
+}
+.subsection .entry {
+    margin-left: 6%;
+}
+.bullet {
+    background-color:black;
+}
