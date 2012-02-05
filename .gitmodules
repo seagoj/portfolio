@@ -1,0 +1,6 @@
+[submodule "lib.dbg"]
+	path = lib.dbg
+	url = git@github.com:seagoj/lib.dbg.git
+[submodule "lib.model"]
+	path = lib.model
+	url = git@github.com:seagoj/lib.model.git
