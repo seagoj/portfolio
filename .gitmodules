@@ -4,3 +4,6 @@
 [submodule "lib.model"]
 	path = lib.model
 	url = git@github.com:seagoj/lib.model.git
+[submodule "jquery"]
+	path = jquery
+	url = git@github.com:jquery/jquery.git
