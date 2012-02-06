@@ -17,8 +17,7 @@ class portfolio {
         //$this->getEntries();
         $this->getSubsections();
         $this->getSubsectionTitles();
-
-        /*
+/*
         print "<div>sectionTitles: </div>";
         var_dump($this->sectionTitles);
         print "<div>subectionTitles: </div>";
@@ -27,8 +26,8 @@ class portfolio {
         var_dump($this->subsections);
         print "<div>entries: </div>";
         var_dump($this->entries);
-         *
-         */
+ * 
+ */
     }
 
     /* Only stores SQL strings for DB recreataion
@@ -81,7 +80,6 @@ class portfolio {
      * @todo assert data
      */
     private function getSubsections() {
-        print "<div>start get subsections</div>";
         $this->model->setQuery('select');
         $this->model->from('content');
         $this->model->columns(array('section','value'));
@@ -89,16 +87,8 @@ class portfolio {
                 array('col'=>'name','val'=>'subsection'),
             );
         $this->model->where($where);
-        print $this->model->assemble();
         $results =  $this->model->query();
-        //$temp = array($results['section']=>$results['value']);
-        
-        //foreach($results AS $row) {
-        //    $temp[$row['section']] = $row['value'];
-        //}
         $this->subsections = $results;
-        var_dump($this->subsections);
-        print "<div>end getsubsections</div>";
     }
     /* Gets title of all sections from th edatabase and stores them in $this->sectionTitles
      * $this->sectionTitles = array(
@@ -153,16 +143,11 @@ class portfolio {
      *
      */
     private function subsections($index) {
-        var_dump($this->subsectionTitles);
-        print "<div>Subsections[index]: $this->subsections[$index]</div>";
-        print "<div>Index: $index</div>";
-            var_dump($this->subsections);
-            if($sub==$this->subsections['value']) {
-                print "<div class='subsection'><div class='title'>".$this->subsectionTitles[$sub]."</div>";
-                $this->entries($this->subsections[$index]);
-                "</div>";
-            }
-        
+        if(isset($this->subsections[$index])) {
+            print "<div class='subsection'><div class='title'>".$this->subsectionTitles[$this->subsections[$index]]."</div>";
+            $this->entries($this->subsections[$index]);
+            "</div>";
+        }
     }
     /* Retrieves and displays all entries listed for a section
      *
@@ -183,9 +168,10 @@ class portfolio {
         $this->model->from('content');
         $this->model->columns(array('value'));
         $where = array(
-                array('col'=>'name','val'=>'format.bullets')
+                array('col'=>'name','val'=>'format.bullets'),
+                array('col'=>'section','val'=>$index)
             );
-        $this->model->where($where);
+        $this->model->where($where, 'AND');
         $bullets =  $this->model->query();
         $bullets = $bullets['value'];
 
