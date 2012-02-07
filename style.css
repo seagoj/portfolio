@@ -14,8 +14,13 @@
 root { 
     display: block;
 }
-a {
+a:hover {
     text-decoration:none;
+    color: gray;
+}
+a:link,a:visited,a:active{
+    text-decoration:none;
+    color: blue;
 }
 #contact {
     margin-top: 5%;
@@ -125,4 +130,7 @@ position:absolute;
 color:#6fa5fd;
 font-weight:700;
 display:block;
+}
+#sample1 {
+    font-weight: bold;
 }

@@ -49,7 +49,7 @@
                 </div>
                 <div class='subsection'>
                     <div class='title'>Web Development Projects at Swink Fiehler</div>
-                    <div class='description'>Developed a customer contact generation program with web form management, data entry interface and PHP/MySQL backend. <a href='#' id='sample1'>Code</a></div>
+                    <div class='description'>Developed a customer contact generation program with web form management, data entry interface and PHP/MySQL backend. | <a href='#' id='sample1'>Code</a></div>
                     <ul class='bullet'>
                         <li class='entry'>Generated an image based on the customer information stored in the system and either emailed the customer a newsletter or printed the newsletter to be mailed based on if the email address of the customer was known.</li>
                     </ul>
