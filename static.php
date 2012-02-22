@@ -7,7 +7,7 @@
         <script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
         <script src="codesample.js" type="text/javascript"></script>
-        <title>Portfolio</title>
+        <title>Portfolio EDIT</title>
     </head>
     <body onload="prettyPrint()">
         <div id='contact'>
