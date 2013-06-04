@@ -1,0 +1,6 @@
+[submodule "lib/Devtools"]
+	path = lib/Devtools
+	url = git://github.com/seagoj/devtools.git
+[submodule "lib/predis"]
+	path = lib/predis
+	url = git://github.com/nrk/predis.git

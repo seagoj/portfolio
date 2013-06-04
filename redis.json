@@ -1,0 +1,74 @@
+{
+    "portfolio": {
+        "page": {
+            "map": "page,contact,section1,section2,section3,section4,section5,section6",
+            "title":"Portfolio"
+        },
+        "contact": {
+            "name":"Jeremy D. Seago",
+            "address1":"1224 Russell Boulevard",
+            "city":"St. Louis",
+            "state":"MO",
+            "zip":"63104",
+            "phone":"314.467.0643",
+            "email":"seagoj@gmail.com",
+            "github":"<a href='http://github.com/seagoj'>seagoj</a>"
+        },
+        "section1": {
+            "title":"Qualification Summary",
+            "entry1":"Worked 5+ years as an IT professional managing projects based on client specifications both as the sole consultant/developer and as a member of a project team.",
+            "entry2":"Experience in team  based development with code review and open source projects",
+            "entry3":"Proficient with C++,  Java, HTML, ASP, PHP, MySQL, Perl, Javascript, Jquery library, AJAX frameworks, XML, Unix and Linux shell and Windows batch commands",
+            "entry4":"Extensive experience with IBM Eclipse, Netbeans and Microsoft Visual Studio IDEs",
+            "entry5":"Knowledgeable in unit testing, refactoring, object oriented programming, MVC (Model, View, Control) style programming, OWASP principles and man-in-the-middle security analysis using Burp Suit and Fiddler",
+            "entry6":"Experience with utilization and implementation of virtualized development environments through Vagrant and Chef",
+            "entry7":"Extensive experience with version control use and implementation through git, subversion and mercurial",
+            "entry8":"Knowledge of coding standards and adhearance to the PSR-0/1/2 for PHP development"
+        },
+        "section2": {
+            "title":"Relevant Experience",
+            "_title11": "Information Technology Consultant",
+            "_description11":"March 2006-Present  Swink, Fiehler &amp; Co. LLC, St. Louis, MO",
+            "_entry11":"Planning new network infrastructure installations and security and performance improvements to existing networks",
+            "_entry12":"Installation and ground-up configuration of Windows Server 2003 and 2008 based domains and maintenance of those networks",
+            "_entry13":"Daily network issue and trouble ticket resolution",
+            "_entry14":"Response to all tickets within 30 minutes of submission with a 90% clearance rate in the first hour",
+            "_title21":"Web Development Projects at Swink Fiehler",
+            "_description21":"Developed a customer contact generation program with web form management, data entry interface and PHP/MySQL backend. | <a href='#' id='sample1'>Code</a>",
+            "_entry21":"Generated an image based on the customer information stored in the system and either emailed the customer a newsletter or printed the newsletter to be mailed based on if the email address of the customer was known.",
+            "_title31":" ",
+            "_description31":"Customization of OSticket open source ticket submission web application",
+            "_entry31":"OSticket open source project and developing improvements and customizations",
+            "_entry32":"Enhanced automated ticket entry via email.",
+            "_entry33":"Added logic for enhanced notifications on ticket update or transfer.",
+            "_entry34":"Added options for varied automated responses and beginning remote support installation",
+            "_entry35":"Implemented reporting capabilities  for each staff member’s activity over a given period",
+            "_entry36":"Created ticket submission page streamlined for internal tickets"
+        },
+        "section3": {
+            "title":"Freelance Development",
+            "description":"2006 - present",
+            "entry1":"Designed a web application that ran queries against a database based on commands sent to an email address and returned the results in a reply email",
+            "entry2":"Developed a price aggregator that searched multiple sites via web scraping and available APIs. Used Jquery and AJAX to create a dynamic interface for site."
+        },
+        "section4": {
+            "title":"Student Web Developer",
+            "description":"February 2002 - May 2005  Illinois College, Jacksonville, IL",
+            "entry1":"Developed Illinois College website using HTML, Javascript, CSS and Perl CGI scripting",
+            "entry2":"Implemented of CSS across entire site",
+            "entry3":"Migrated and redeveloped website to dynamic ASP environment with substantial CMS support including ability to select page layouts and images",
+            "entry4":"Port of ASP site to an ASP.net environment."
+        },
+        "section5": {
+            "title":"Education",
+            "description":"Illinois College, Jacksonville, IL",
+            "entry1":"Bachelor of Science in Computer Science",
+            "entry2":"Mathematics minor"
+        },
+        "section6": {
+            "title":"Relevant Personal Interests",
+            "entry1":"Attended Defcon 14 and Defcon 16 Conferences",
+            "entry2":"Strong interest in information and application security"
+        }
+    }
+}
