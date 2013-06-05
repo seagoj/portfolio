@@ -14,7 +14,7 @@ namespace Seagoj;
 class Portfolio
 {
     private $log;
-    private $model;
+    public $model;
     private $config;
     private $markdown;
     private $input;
