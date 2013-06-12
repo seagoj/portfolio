@@ -1,3 +1,5 @@
+title:  Jeremy Seago's portfolio
+
 ### Qualification Summary
 * Worked 6+ years as an IT professional managing projects based on client specifications both as the sole consultant/developer and as a member of a project team.
 * Experience in team  based development with code review and open source projects
