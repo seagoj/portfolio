@@ -37,4 +37,16 @@ class PortfolioTest extends PHPUnit_Framework_TestCase
     {
         
     }
+
+    /**
+     * @covers Seagoj\Portfolio::__construct
+     * @covers Seagoj\Portfolio::loadDatastore
+     * @covers Seagoj\Portfolio::loadDatastoreMarkdown
+     * @covers Seagoj\Portfolio::body
+     **/
+    public function testBody()
+    {
+        $portfolio = new \Seagoj\Portfolio();
+        $portfolio->body();
+    }
 }

@@ -25,22 +25,22 @@ class Portfolio
     public function __construct($options = [])
     {
         $defaults = [
-            'file'=>'redis.json'
+            'file' => 'redis.json'
         ];
 
         $this->config = array_merge($defaults, $options);
         $this->log = new \Devtools\Log();
         $this->model = new \Devtools\Model();
-        $this->markdown = new \Devtools\Markdown();
+        $this->markdown = new \Devtools\Markdown(['htmlTag' => false]);
         
         $this->loadDatastore();
 
-        $this->page = $this->_getSection("portfolio.page");
-        $this->map = explode(",", $this->page['map']);
-        
-        foreach ($this->map AS $location) {
-            $this->$location = $this->model->getAll('portfolio.'.$location);
-        }
+        // $this->page = $this->getSection("portfolio.page");
+        // $this->map = explode(",", $this->page['map']);
+       
+        // foreach ($this->map as $location) {
+        //     $this->$location = $this->model->getAll('portfolio.'.$location);
+        // }
     }
 
     /**
@@ -52,18 +52,17 @@ class Portfolio
      **/
     public function body()
     {
-        $md = new \Devtools\Markdown();
         $output = array();
         $first =true;
-        foreach (explode("\n", $md->convert('../lib/Portfolio.md')) AS $line) {
+        foreach (explode("\n", $this->markdown->convert('../lib/Portfolio.md')) as $line) {
             if (substr($line, 0, 3)=="<h3") {
-                if(!$first) 
+                if (!$first) {
                     array_push($output, "</div>\n<div class='well span10'>".$line);
-                else {
+                } else {
                     array_push($output, "<div class='well span10'>".$line);
                     $first = false;
                 }
-            } else if (substr($line, 0, 5)=="</ul>" && $header) {
+            } elseif (substr($line, 0, 5)=="</ul>" && $header) {
                 array_push($output, $line."</div>");
                 $header = false;
             } else {
@@ -71,12 +70,12 @@ class Portfolio
             }
         }
         print implode("\n", $output);
-        // print "<div class='well span10'>".$md->convert('../lib/Portfolio.md')."</div>";
+        // print "<div class='well span10'>".$this->markdown->convert('../lib/Portfolio.md')."</div>";
 
         /*
         $count = 1;
         while (isset($this->{'section'.$count})) {
-            $this->_printSection('section'.$count++);
+            $this->printSection('section'.$count++);
         }
         */
     }
@@ -90,13 +89,15 @@ class Portfolio
      **/
     public function contact()
     {
-        $contact = $this->_getSection('portfolio.contact');
+        $contact = $this->getSection('portfolio.contact');
 
         print "<div id='name'><span class='icon'></span>".$contact['name']."</div>"
             ."<div id='address'><span class='icon'></span>".$contact['address1']."</div>"
-            ."<div id='citystatezip'><span class='icon'></span>".$contact['city'].", ".$contact['state']." ".$contact['zip']."</div>"
+            ."<div id='citystatezip'><span class='icon'></span>"
+                .$contact['city'].", ".$contact['state']." ".$contact['zip']."</div>"
             ."<div id='phone'><span class='icon'></span>".$contact['phone']."</div>"
-            ."<div id='email'><span class='icon'></span><a href='mailto:".$contact['email']."'>".$contact['email']."</a></div>"
+            ."<div id='email'><span class='icon'></span><a href='mailto:".$contact['email']."'>"
+                .$contact['email']."</a></div>"
             ."<div id='github'><span class='icon'></span>".$contact['github']."</div>";
     }
 
@@ -116,7 +117,7 @@ class Portfolio
             print "</div><div class='well span10'><h3>Current projects</h3>\n";
             print "<ul>";
             $count = 1;
-            foreach ($list AS $repo) {
+            foreach ($list as $repo) {
                 $name = $git->get($repo, 'name');
                 $url = $git->get($repo, 'svn_url');
                 $description = $git->get($repo, 'description');
@@ -133,20 +134,22 @@ class Portfolio
                 //         .'<div class="title">Code Sample</div>'
                 //         .'<pre class="prettyprint">'
                 //         .'<code class="language-php">'.$code."</code></pre></div>";
-                //     print "<div class='project'><a id='sample".$count++."' href='#'>".strtoupper($name)."</a>:\t".$description."</div>";
+                //     print "<div class='project'><a id='sample".$count++."' href='#'>"
+                //.strtoupper($name)."</a>:\t".$description."</div>";
                 // } else {
-                    print "<div class='project'><a id='sample".$count++."' href='".$url."'>".strtoupper($name)."</a>:\t".$description."</div>";
+                    print "<div class='project'><a id='sample".$count++."' href='".$url."'>"
+                        .strtoupper($name)."</a>:\t".$description."</div>";
                 // }
 
                 
             }
             print "</ul>";
-            print "</div>";    
+            print "</div>";
         }
     }
 
     /**
-     * Portfolio._printSection()
+     * Portfolio.printSection()
      *
      * Prints a single section of the body
      *
@@ -154,22 +157,22 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _printSection($map)
+    private function printSection($map)
     {
         //print "<div class='section'>";
         print '<div class="well span10">';
-        $this->_sectionTitle($map);
-        $this->_sectionDescription($map);
-        $this->_sectionEntries($map);
+        $this->sectionTitle($map);
+        $this->sectionDescription($map);
+        $this->sectionEntries($map);
         
-        if ($this->_hasSubsection($map)) {
-            $this->_printSubsections($map);
+        if ($this->hasSubsection($map)) {
+            $this->printSubsections($map);
         }
         print '</div>';
     }
 
     /**
-     * Portfolio._hasSubsection()
+     * Portfolio.hasSubsection()
      *
      * Prints a single section of the body
      *
@@ -177,13 +180,13 @@ class Portfolio
      *
      * @return  bool True: subsection exists; False: Subsection does not exist
      **/
-    private function _hasSubsection($map)
+    private function hasSubsection($map)
     {
         return key_exists('_title11', $this->$map);
     }
 
     /**
-     * Portfolio._getSection()
+     * Portfolio.getSection()
      *
      * Prints a single section of the body
      *
@@ -191,13 +194,13 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _getSection($tag)
+    private function getSection($tag)
     {
         return $this->model->getAll($tag);
     }
 
     /**
-     * Portfolio._section()
+     * Portfolio.section()
      *
      * Prints a single section of the body
      *
@@ -206,7 +209,7 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _sectionTitle($map,$key = 'title')
+    private function sectionTitle($map, $key = 'title')
     {
         $ret = $this->$map;
         //print "\t<div class='title'>".$ret[$key]."</div>\n";
@@ -214,7 +217,7 @@ class Portfolio
     }
 
     /**
-     * Portfolio._subTitle()
+     * Portfolio.subTitle()
      *
      * Prints the title for the current subsection
      *
@@ -223,15 +226,15 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _subTitle($map, $key='_title11')
+    private function subTitle($map, $key = '_title11')
     {
         print "\t<div class='subsection'>\n";
-        $this->_sectionTitle($map, $key);
+        $this->sectionTitle($map, $key);
         //die("map: $map; key: $key");
     }
 
     /**
-     * Portfolio._sectionDescription()
+     * Portfolio.sectionDescription()
      *
      * Prints the description line of the current section
      *
@@ -240,7 +243,7 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _sectionDescription($map,$key='description')
+    private function sectionDescription($map, $key = 'description')
     {
         $ret = $this->$map;
         // print "\t<div class='description'>".$ret[$key]."</div>\n";
@@ -248,7 +251,7 @@ class Portfolio
     }
 
     /**
-     * Portfolio._subDescription()
+     * Portfolio.subDescription()
      *
      * Prints the description line of the current subsection
      *
@@ -257,13 +260,13 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _subDescription($map,$key='_description11')
+    private function subDescription($map, $key = '_description11')
     {
-        $this->_sectionDescription($map, $key);
+        $this->sectionDescription($map, $key);
     }
 
     /**
-     * Portfolio._sectionEntries()
+     * Portfolio.sectionEntries()
      *
      * Prints the entries of the current section
      *
@@ -272,7 +275,7 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _sectionEntries($map,$key='entry')
+    private function sectionEntries($map, $key = 'entry')
     {
         $count = 1;
         $ret = $this->$map;
@@ -284,7 +287,7 @@ class Portfolio
     }
 
     /**
-     * Portfolio._subEntries()
+     * Portfolio.subEntries()
      *
      * Prints the entries for the current subsection
      *
@@ -293,14 +296,14 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _subEntries($map, $key)
+    private function subEntries($map, $key)
     {
-        $this->_sectionEntries($map, $key);
+        $this->sectionEntries($map, $key);
         print "</div>\n";
     }
 
     /**
-     * Portfolio._printSubSections()
+     * Portfolio.printSubSections()
      *
      * Prints the current subsection
      *
@@ -308,16 +311,20 @@ class Portfolio
      *
      * @return  void
      **/
-    private function _printSubsections($map)
+    private function printSubsections($map)
     {
         $count = 1;
         
-        while (array_key_exists('_title'.$count.'1', $this->$map) || array_key_exists('_description'.$count.'1', $this->$map)) {
-            if (array_key_exists('_title'.$count.'1', $this->$map))
-                $this->_subTitle($map, '_title'.$count.'1');
-            if (array_key_exists('_description'.$count.'1', $this->$map))
-                $this->_subDescription($map, '_description'.$count.'1');
-            $this->_subEntries($map, '_entry'.$count++);
+        while (array_key_exists('_title'.$count.'1', $this->$map) ||
+            array_key_exists('_description'.$count.'1', $this->$map)) {
+            if (array_key_exists('_title'.$count.'1', $this->$map)) {
+                $this->subTitle($map, '_title'.$count.'1');
+            }
+
+            if (array_key_exists('_description'.$count.'1', $this->$map)) {
+                $this->subDescription($map, '_description'.$count.'1');
+            }
+            $this->subEntries($map, '_entry'.$count++);
         }
     }
 
@@ -362,9 +369,9 @@ class Portfolio
      **/
     private function loadDatastoreJSON()
     {
-        foreach ($this->input as $site=>$data) {
-            foreach ($data as $section=>$info) {
-                foreach ($info as $key=>$value) {
+        foreach ($this->input as $site => $data) {
+            foreach ($data as $section => $info) {
+                foreach ($info as $key => $value) {
                     $hashID = "$site.$section";
                     $this->model->set($key, $value, $hashID);
                 }
