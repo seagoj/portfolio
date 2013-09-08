@@ -1,20 +1,28 @@
 title:  Jeremy Seago's portfolio
 
 ### Qualification Summary
-* Worked 6+ years as an IT professional managing projects based on client specifications both as the sole consultant/developer and as a member of a project team.
-* Experience in team  based development with code review and open source projects
-* Proficient with SASS, C++, Java, HTML, ASP, PHP, MySQL, Perl, Javascript, Jquery library, AJAX frameworks, XML, Unix and Linux shell and Windows batch commands
-* Extensive experience with development IDEs such as: Sublime Text 2, IBM Netbeans, Eclipse and Microsoft Visual Studio
-* Knowledgeable in unit testing, refactoring, object oriented programming, MVC (Model, View, Control) style programming, OWASP principles and man-in-the-middle security analysis using Burp Suite and Fiddler
-* Experience with utilization and implementation of virtualized development environments through Vagrant and Chef
-* Extensive experience with version control practices and implementation through git, subversion and mercurial
+* Over 7 years of experience as an IT professional managing projects based on client specifications both as the sole consultant/developer and as a member of a team.
+* Team based development with code review and open source projects
+* Extensive experience with development and system administration in Linux environments
+* Knowledgeable in unit testing, refactoring, object oriented programming, MVC style programming, & OWASP principles
+* Experience with utilization and implementation of virtualized development environments through Vagrant and Chef/Puppet
+* Extensive experience with version control practices and implementation through Git
+* Proficient in remote deployment via Git webhooks & FTP
 * Knowledge of coding standards and adhearance to the PSR-0/1/2 for PHP development
+* Knowledge of API usage and REST design
+
+### Technical
+* **Languages**: PHP, MySQL, Redis, SASS, CSS, Javascript, JQuery, Ruby, Linux Shell, Windows Batch, Markdown, C++, Java, Python
+* **Applications**: Vim, Sublime Text, IBM Netbeans, Eclipse
+* **Application Server**: Nginx, Apache
+* **Operating Systems**: Linux(Ubuntu, Arch, & Slackware), Windows
+* **Database Systems**: MySQL, Redis, MSSQL, PostgreSQL
 
 ### Relevant Experience
 #### Information Technology Consultant
 ##### March 2006-Present  Swink, Fiehler &amp; Co. LLC, St. Louis, MO
 * Planning new network infrastructure installations and security and performance improvements to existing networks
-* Installation and ground-up configuration of Windows Server 2003 and 2008 based domains and maintenance of those networks
+* Installation and ground-up configuration of Windows Server 2003, 2008 and 2012 based domains and maintenance of those networks
 * Daily network issue and trouble ticket resolution
 * Response to all tickets within 30 minutes of submission with a 90% clearance rate in the first hour
 
@@ -22,7 +30,7 @@ title:  Jeremy Seago's portfolio
 ##### Animated slideshow page for major manufacturing company
 * Created a slideshow to showcase product styles available for purchase
 * Worked directly with the client to fine tune the animation style to their specifications
-* Demoed the site for the client
+* Presented the finished slideshow to the client
 
 ##### Developed a customer contact generation program with web form management, data entry interface and PHP/MySQL backend.
 * Generated an image based on the customer information stored in the system and either emailed the customer a newsletter or printed the newsletter to be mailed based on if the email address of the customer was known.
@@ -37,6 +45,8 @@ title:  Jeremy Seago's portfolio
 
 #### Freelance Development
 ##### 2006 - Present
+* Designed a Chef and Vagrant based virtual [development environment for PHP](https://github.com/search?q=%40seagoj+cookbook) (PHP 5, Redis, Nginx, Sass, and libraries such as Bootstrap and JQuery).
+* Created a [suite of developer tools](https://github.com/seagoj/Devtools.git) for PHP that handle autoloading of resources, calls to datastores, debugging and logging.
 * Designed a web application that ran queries against a database based on commands sent to an email address and returned the results in a reply email
 * Developed a price aggregator that searched multiple sites via web scraping and available APIs. Used Jquery and AJAX to create a dynamic interface for site.
 
