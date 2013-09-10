@@ -32,7 +32,7 @@ title:  Jeremy Seago's portfolio
 * Worked directly with the client to fine tune the animation style to their specifications
 * Presented the finished slideshow to the client
 
-##### Developed a customer contact generation program with web form management, data entry interface and PHP/MySQL backend.
+##### Developed a customer contact mailing generation program
 * Generated an image based on the customer information stored in the system and either emailed the customer a newsletter or printed the newsletter to be mailed based on if the email address of the customer was known.
 
 ##### Customization of OSticket open source ticket submission web application
